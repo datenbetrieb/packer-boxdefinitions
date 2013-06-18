@@ -33,5 +33,4 @@ veewee gem must be installed from source (>=0.3.8.dev)
 - veewee $PROVIDER build
 - veewee $PROVIDER export
 - mv XX.box boxes/.
-
-created *.box image must be uploaded
+- scp boxes/XX.box h01n:/srv/www/boxes.datenbetrieb.de/.
