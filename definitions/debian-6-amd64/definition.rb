@@ -39,7 +39,6 @@ Veewee::Definition.declare({
     "vagrant.sh",
     "virtualbox.sh",
     "ruby.sh",
-    "puppet.sh",
     "chef.sh",
     "cleanup-virtualbox.sh",
     "cleanup.sh",
