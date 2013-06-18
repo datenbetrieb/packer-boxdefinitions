@@ -3,7 +3,7 @@
 date > /etc/vagrant_box_build_time
 
 # Add groups puppet and chef
-groupadd puppet
+#groupadd puppet
 groupadd chef
 
 # Create the user vagrant with password vagrant
