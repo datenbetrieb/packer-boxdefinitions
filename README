@@ -1,4 +1,8 @@
-Manage Machine Definitions
+Manage Machine Definitions (veewee)
 ====================================================
+https://github.com/datenbetrieb/veewee
+
+veewee gem must be installed from source (>=0.3.8.dev)
+
 veewee vbox 
 veewee kvm
