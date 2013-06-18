@@ -2,7 +2,7 @@
 
 Veewee::Definition.declare({
   :cpu_count => '1',
-  :memory_size=> '256',
+  :memory_size=> '512',
   :disk_size => '10140', :disk_format => 'VDI', :hostiocache => 'off',
   :os_type_id => 'Debian_64',
   :iso_file => "debian-7.1.0-amd64-netinst.iso",
@@ -43,7 +43,7 @@ Veewee::Definition.declare({
     "virtualbox.sh",
     #"vmfusion.sh",
     "ruby.sh",
-    "puppet.sh",
+    #"puppet.sh",
     "chef.sh",
     "cleanup-virtualbox.sh",
     "cleanup.sh",
