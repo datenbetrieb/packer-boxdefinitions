@@ -20,7 +20,6 @@ vagrant up
 <-- for developing only -->
 <------------------------->
 
-created *.box image must be uploaded
 
 Manage Machine Definitions (veewee)
 ====================================================
@@ -29,5 +28,10 @@ https://github.com/datenbetrieb/veewee
 
 veewee gem must be installed from source (>=0.3.8.dev)
 
-veewee vbox 
-veewee kvm
+
+- export PROVIDER=vbox
+- veewee $PROVIDER build
+- veewee $PROVIDER export
+- mv XX.box boxes/.
+
+created *.box image must be uploaded
