@@ -2,7 +2,7 @@ Requirements
 ====================================================
 
 * Virtualbox
-* Vagrant (>1.1.x)
+* Vagrant (>1.1.x), [google & Download native installer, DONT INSTALL VIA GEM!!!!]
 
 Installation
 ====================================================
