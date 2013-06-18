@@ -1,5 +1,30 @@
+Requirements
+====================================================
+
+* Virtualbox
+* Vagrant (>1.1.x)
+
+Installation
+====================================================
+
+git clone git@git.niekom.de:datenbetrieb/infrastructure.git
+cd infrastructure
+
+Usage
+====================================================
+
+vagrant up
+
+
+<------------------------->
+<-- for developing only -->
+<------------------------->
+
+created *.box image must be uploaded
+
 Manage Machine Definitions (veewee)
 ====================================================
+
 https://github.com/datenbetrieb/veewee
 
 veewee gem must be installed from source (>=0.3.8.dev)
