@@ -1,27 +1,4 @@
-Requirements
-====================================================
-
-* Virtualbox
-* Vagrant (>1.1.x), [google & Download native installer, DONT INSTALL VIA GEM!!!!]
-
-Installation
-====================================================
-
-git clone git@git.niekom.de:datenbetrieb/infrastructure.git
-cd infrastructure
-
-Usage
-====================================================
-
-vagrant up
-
-
-<------------------------->
-<-- for developing only -->
-<------------------------->
-
-
-Manage Machine Definitions (veewee)
+Datenbetrieb Basic Machine Definitions (veewee)
 ====================================================
 
 https://github.com/datenbetrieb/veewee
