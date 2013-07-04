@@ -70,5 +70,8 @@
         ]
       ]
     }
+  ],
+  "post-processors" :  [
+    "vagrant"
   ]
 }
