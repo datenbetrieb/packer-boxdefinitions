@@ -26,9 +26,9 @@ if test -f .vbox_version ; then
   /etc/init.d/vboxadd start
 
   # Make a temporary mount point
-  mkdir /tmp/veewee-validation
+#  mkdir /tmp/veewee-validation
 
   # Test mount the veewee-validation
-  mount -t vboxsf veewee-validation /tmp/veewee-validation
+ # mount -t vboxsf veewee-validation /tmp/veewee-validation
 
 fi
