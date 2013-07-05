@@ -44,6 +44,7 @@
       ],
       "boot_wait": "10s",
       "disk_size": 5070,
+      "vm_name": "debian-7-amd64",
       "guest_os_type": "Debian_64",
       "http_directory": "http",
       "iso_md5": "80f498a1f9daa76bc911ae13692e4495",
