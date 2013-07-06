@@ -1,4 +1,15 @@
-Datenbetrieb Basic Machine Definitions (veewee)
+Datenbetrieb Basic Machine Definitions (packer)
+====================================================
+
+install packer omnibus installer
+
+
+${PACKER_DIR}/packer validate ${TEMPLATE}.json
+
+${PACKER_DIR}/packer build ${TEMPLATE}.json
+
+
+Veewee (obsolete)
 ====================================================
 
 https://github.com/datenbetrieb/veewee
