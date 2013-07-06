@@ -6,6 +6,7 @@ date > /etc/vagrant_box_build_time
 useradd -G sudo -p $(perl -e'print crypt("vagrant", "vagrant")') -m -s /bin/bash -N vagrant
 
 # Install vagrant keys
+# @todo: integrate some more security by adding some other keys
 mkdir -pm 700 /home/vagrant/.ssh
 curl -Lo /home/vagrant/.ssh/authorized_keys \
   'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub'
