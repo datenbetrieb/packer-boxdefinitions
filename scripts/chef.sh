@@ -1,7 +1,5 @@
-if [ -f .veewee_params ]
-then
-  . .veewee_params
-fi
+# @todo turn into real config param?
+CHEF_INSTALLMETHOD="omnibus"
 
 # Default to Gem install
 if [ -z "$CHEF_INSTALLMETHOD" ]; then
