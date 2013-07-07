@@ -1,11 +1,17 @@
 {
-  "provisioners": [{
+  "provisioners": [
+  {
+      "type": "shell",
+      "script": "chef_11.4.4-2.debian.6.0.5_amd64.deb",
+      "remote_path": "/tmp/chef_11.4.4-2.debian.6.0.5_amd64.deb",
+      "execute_command": "dpkg -i /tmp/chef_11.4.4-2.debian.6.0.5_amd64.deb"
+  },
+  {
       "type": "shell",
       "scripts": [
         "scripts/base.sh",
+        "scripts/chef-from-local-file.sh",
         "scripts/vagrant.sh",
-        "scripts/virtualbox.sh",
-        "scripts/cleanup-virtualbox.sh",
         "scripts/cleanup.sh"
       ],
       "override": {
@@ -14,7 +20,8 @@
         "vmware": {
         }
       }
-  }],
+  }
+  ],
   "builders": [{
       "type": "virtualbox",
       "boot_command": [
@@ -51,5 +58,6 @@
   "post-processors": [{
     "type" : "vagrant",
     "output" :  "debian-packer.box",
+    "keep_input_artifact" : true
   }]
 }
