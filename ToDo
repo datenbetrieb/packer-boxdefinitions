@@ -1,7 +1,5 @@
-test virtualbox guest additions
-    cd /tmp/vagtest
-    vagrant up
-    vagrant ssh
-    "chef the status of vbox additions"
-add chef omnibus
+virtualbox guest additions based on debian kernel/likely to be outdated
+    -> find a better way to match version of guestadditions and version of host virtualbox 
 add vagrant template
+
+[DONE] chef installed via omnibus
