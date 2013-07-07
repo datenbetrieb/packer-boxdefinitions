@@ -1,7 +1,7 @@
 Datenbetrieb Basic Machine Definitions (packer)
 ====================================================
 
-install packer omnibus installer
+install packer (download from packer.io)
 
 
 ${PACKER_DIR}/packer validate ${TEMPLATE}.json
