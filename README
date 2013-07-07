@@ -9,6 +9,9 @@ ${PACKER_DIR}/packer validate ${TEMPLATE}.json
 ${PACKER_DIR}/packer build ${TEMPLATE}.json
 
 
+vagrant box remove ${BOXNAME} virtualbox
+vagrant box add ${BOXNAME} $(BOXFILE}.box
+
 Veewee (obsolete)
 ====================================================
 
