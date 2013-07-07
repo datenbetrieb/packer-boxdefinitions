@@ -1,3 +1,7 @@
 test virtualbox guest additions
+    cd /tmp/vagtest
+    vagrant up
+    vagrant ssh
+    "chef the status of vbox additions"
 add chef omnibus
 add vagrant template
