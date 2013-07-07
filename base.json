@@ -3,8 +3,8 @@
   {
       "type": "shell",
       "script": "chef_11.4.4-2.debian.6.0.5_amd64.deb",
-      "remote_path": "/tmp/chef_11.4.4-2.debian.6.0.5_amd64.deb",
-      "execute_command": "dpkg -i /tmp/chef_11.4.4-2.debian.6.0.5_amd64.deb"
+      "remote_path": "/tmp/chef_omnibus.deb",
+      "execute_command": "dpkg -i /tmp/chef_omnibus.deb"
   },
   {
       "type": "shell",
