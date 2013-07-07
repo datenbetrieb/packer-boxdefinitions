@@ -10,10 +10,8 @@
       ],
       "override": {
         "virtualbox": {
-          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
         },
         "vmware": {
-          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
         }
       }
   }],
@@ -44,7 +42,7 @@
       "http_directory": "http",
       "iso_md5": "80f498a1f9daa76bc911ae13692e4495",
       "iso_url": "http://cdimage.debian.org/cdimage/release/7.1.0/amd64/iso-cd/debian-7.1.0-amd64-netinst.iso",
-      "ssh_username": "vagrant",
+      "ssh_username": "root",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
