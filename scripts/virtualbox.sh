@@ -1,3 +1,7 @@
+echo "would compile and run some vboxguest additions"
+echo "disabled for now as we use the one provided inside debian"
+echo "it's easier to match the kernel the debian way"
+exit 0
 if test -f .vbox_version ; then
   # The netboot installs the VirtualBox support (old) so we have to remove it
   if test -f /etc/init.d/virtualbox-ose-guest-utils ; then
