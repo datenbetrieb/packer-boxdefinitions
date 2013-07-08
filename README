@@ -1,27 +1,52 @@
-Datenbetrieb Basic Machine Definitions (packer)
+Image Creation for Virtual Machines
 ====================================================
 
-install packer (download from packer.io)
+Requirements
+----------------------------------------------------
+
+vagrant >= 1.1.0  (vagrantup.com)
+packer >= ??? (packer.io)
 
 
-${PACKER_DIR}/packer validate ${TEMPLATE}.json
+Boxes
+----------------------------------------------------
 
-${PACKER_DIR}/packer build ${TEMPLATE}.json
+base
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-vagrant box remove ${BOXNAME} virtualbox
-vagrant box add ${BOXNAME} $(BOXFILE}.box
-
-Veewee (obsolete)
-====================================================
-
-https://github.com/datenbetrieb/veewee
-
-veewee gem must be installed from source (>=0.3.8.dev)
+german language and keyboard layout
+only minimal package set plus openssh
+chef => 11.x via omnibus install
+users root and vagrant, both with password vagrant, (insecure) ssh-key is imported!!!!!
+passwordless sudo is enabled for vagrant user
 
 
-- export PROVIDER=vbox
-- veewee $PROVIDER build
-- veewee $PROVIDER export
-- mv XX.box boxes/.
-- scp boxes/XX.box h01n:/srv/www/boxes.datenbetrieb.de/.
+Create Image
+----------------------------------------------------
+
+#!/bin/sh
+PACKERBIN=packer
+#PACKERBIN=/opt/packer/packer
+
+TEMPLATE=base
+VERSION=01
+
+# validate config and create the image
+${PACKERBIN} validate ${TEMPLATE}.json
+${PACHERBIN} build ${TEMPLATE}.json
+
+#Add Image on your personal vagrant box shelf
+BOXFILE="packer__virtualbox.box"
+BOXNAME="debian-7-amd64-${TEMPLATE}-${VERSION}"
+#vagrant box remove ${BOXNAME} virtualbox
+#vagrant box add ${BOXNAME} $(BOXFILE}
+
+
+Adopt Definitions
+---------------------------------------------------
+
+
+*.json is the config for packer, consult packer documentation
+
+http/preseed.cfg is used to automate the debian installer
+scripts/* ... toBeContinued ....
