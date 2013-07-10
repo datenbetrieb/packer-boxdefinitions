@@ -2,26 +2,17 @@
   "provisioners": [
   {
       "type": "shell",
-      "script": "chef_11.4.4-2.debian.6.0.5_amd64.deb",
-      "remote_path": "/tmp/chef_omnibus.deb",
-      "execute_command": "dpkg -i /tmp/chef_omnibus.deb"
+      "script": "dummy",
+      "remote_path": "dummy",
+      "execute_command": "find / '*.iso'"
   },
   {
       "type": "shell",
-      "scripts": [
-        "scripts/base.sh",
-        "scripts/chef-from-local-file.sh",
-        "scripts/vagrant.sh",
-        "scripts/cleanup.sh"
-      ],
-      "override": {
-        "virtualbox": {
-        },
-        "vmware": {
-        }
-      }
-  }
-  ],
+      "inline": 
+        ["echo foo",
+        "pwd"
+        ] 
+  }],
   "builders": [{
       "type": "virtualbox",
       "boot_command": [
@@ -43,7 +34,8 @@
       ],
       "boot_wait": "10s",
       "disk_size": 5070,
-      "vm_name": "debian-7-amd64-base",
+      "vm_name": "debian-7-amd64-slim",
+      "guest_additions_path": "VBoxGuestAdditions.iso",
       "guest_os_type": "Debian_64",
       "http_directory": "http",
       "iso_md5": "80f498a1f9daa76bc911ae13692e4495",
