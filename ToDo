@@ -1,5 +1,9 @@
-virtualbox guest additions based on debian kernel/likely to be outdated
+
+* virtualbox guest additions based on debian kernel/likely to be outdated
     -> find a better way to match version of guestadditions and version of host virtualbox 
-add vagrant template
+
+* add vagrant template
+
+* use vagrant-omnibus once chef has fixed the installer for wheezy
 
 [DONE] chef installed via omnibus
