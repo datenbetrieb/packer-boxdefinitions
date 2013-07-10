@@ -6,6 +6,7 @@ Requirements
 
 vagrant >= 1.1.0  (vagrantup.com)
 packer >= ??? (packer.io)
+somehow get the file 'chef_11.4.4-2.debian.6.0.5_amd64.deb' into this repo (vagrant omnibus unfortunatly is broken on chef side)
 
 
 Boxes
@@ -19,6 +20,10 @@ only minimal package set plus openssh
 chef => 11.x via omnibus install
 users root and vagrant, both with password vagrant, (insecure) ssh-key is imported!!!!!
 passwordless sudo is enabled for vagrant user
+
+slim
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+testing
 
 
 Create Image
