@@ -22,9 +22,10 @@ case $CHEF_INSTALLMETHOD in
     # Using omnibus
     if [ -z "$CHEF_VERSION" ]; then
       # Default to latest
-      wget -O - http://opscode.com/chef/install.sh | sudo bash -s
+     wget -0 "https://www.opscode.com/chef/download?v=latest&p=debian&pv=6&m=x86_64" | bash -s 
     else
-      wget -O - http://opscode.com/chef/install.sh | sudo bash -s -- -v $CHEF_VERSION
+      echo "broken chef install scripts/chef.sh"
+      #wget -O - http://opscode.com/chef/install.sh | sudo bash -s -- -v $CHEF_VERSION
     fi
     ;;
 
