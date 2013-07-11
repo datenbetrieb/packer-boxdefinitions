@@ -10,7 +10,7 @@
       "type": "shell",
       "scripts": [
         "scripts/base.sh",
-        "scripts/chef-from-local-file.sh",
+        "scripts/chef",
         "scripts/vagrant.sh",
         "scripts/cleanup.sh"
       ],
