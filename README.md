@@ -2,8 +2,8 @@
 
 ## Requirements
 
-vagrant >= 1.1.0  (vagrantup.com)
-packer >= ??? (packer.io)
+* vagrant >= 1.1.0  (vagrantup.com)
+* packer >= ??? (packer.io)
 
 ## Boxes
 
@@ -18,7 +18,7 @@ packer >= ??? (packer.io)
 ### slim
 
 * testing
-* Download the file 'chef_11.4.4-2.debian.6.0.5_amd64.deb' into this directory as (automatic) installer is broken on wheezy ((see http://tickets.opscode.com/browse/CHEF-4125)
+* Download the file 'chef_11.4.4-2.debian.6.0.5_amd64.deb' into this directory as (automatic) installer is broken on wheezy (see http://tickets.opscode.com/browse/CHEF-4125)
 
 
 ## Create Image
