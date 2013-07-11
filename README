@@ -6,7 +6,6 @@ Requirements
 
 vagrant >= 1.1.0  (vagrantup.com)
 packer >= ??? (packer.io)
-Download the file 'chef_11.4.4-2.debian.6.0.5_amd64.deb' into this directory as (automatic) installer is broken on wheezy ((see http://tickets.opscode.com/browse/CHEF-4125)
 
 Boxes
 ----------------------------------------------------
@@ -22,7 +21,9 @@ passwordless sudo is enabled for vagrant user
 
 slim
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 testing
+Download the file 'chef_11.4.4-2.debian.6.0.5_amd64.deb' into this directory as (automatic) installer is broken on wheezy ((see http://tickets.opscode.com/browse/CHEF-4125)
 
 
 Create Image
