@@ -11,7 +11,7 @@
       "scripts": [
         "scripts/base.sh",
         "scripts/chef",
-        "scripts/vagrant.sh",
+        "scripts/vagrant-ssh-key.sh",
         "scripts/cleanup.sh"
       ],
       "override": {
