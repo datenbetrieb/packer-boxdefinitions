@@ -1,29 +1,6 @@
 {
-  "provisioners": [
-  {
-      "type": "shell",
-      "script": "chef_11.4.4-2.debian.6.0.5_amd64.deb",
-      "remote_path": "/tmp/chef_omnibus.deb",
-      "execute_command": "dpkg -i /tmp/chef_omnibus.deb"
-  },
-  {
-      "type": "shell",
-      "scripts": [
-        "scripts/base.sh",
-        "scripts/chef",
-        "scripts/vagrant-ssh-key.sh",
-        "scripts/cleanup.sh"
-      ],
-      "override": {
-        "virtualbox": {
-        },
-        "vmware": {
-        }
-      }
-  }
-  ],
-  "builders": [{
-      "type": "virtualbox",
+  "builders": [
+    {
       "boot_command": [
         "<esc><wait>",
         "install ",
@@ -43,20 +20,43 @@
       ],
       "boot_wait": "10s",
       "disk_size": 5070,
-      "vm_name": "debian-7-amd64-base",
       "guest_os_type": "Debian_64",
       "http_directory": "http",
-      "iso_md5": "80f498a1f9daa76bc911ae13692e4495",
+      "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
+      "iso_checksum_type": "md5",
       "iso_url": "http://cdimage.debian.org/cdimage/release/7.1.0/amd64/iso-cd/debian-7.1.0-amd64-netinst.iso",
-      "ssh_username": "root",
+      "shutdown_command": "echo 'halt -p' > shutdown.sh; echo 'vagrant'|sudo -S bash 'shutdown.sh'",
       "ssh_password": "vagrant",
       "ssh_port": 22,
+      "ssh_username": "root",
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'halt -p' > shutdown.sh; echo 'vagrant'|sudo -S bash 'shutdown.sh'"
-  }],
-  "post-processors": [{
-    "type" : "vagrant",
-    "output" :  "debian-7-amd64-base.box",
-    "keep_input_artifact" : true
-  }]
+      "type": "virtualbox",
+      "vboxmanage": [],
+      "vm_name": "debian-7-amd64-base"
+    }
+  ],
+  "post-processors": [
+    {
+      "keep_input_artifact": true,
+      "output": "debian-7-amd64-base.box",
+      "type": "vagrant"
+    }
+  ],
+  "provisioners": [
+    {
+      "override": {
+        "virtualbox": {},
+        "vmware": {}
+      },
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/vagrant-ssh-key.sh",
+        "scripts/virtualbox.sh",
+        "scripts/cleanup.sh",
+        "scripts/zerodisk.sh"
+      ],
+      "type": "shell"
+    }
+  ]
 }
+
