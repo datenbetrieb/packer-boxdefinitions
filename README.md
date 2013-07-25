@@ -32,7 +32,7 @@
 
     > # validate config and create the image
     > ${PACKERBIN} validate ${TEMPLATE}.json
-    > ${PACHERBIN} build ${TEMPLATE}.json
+    > ${PACKERBIN} build ${TEMPLATE}.json
 
     > #Add Image on your personal vagrant box shelf
     > BOXFILE="packer__virtualbox.box"
