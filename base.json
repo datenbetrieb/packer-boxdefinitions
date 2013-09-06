@@ -25,7 +25,7 @@
       "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
       "iso_checksum_type": "md5",
       "iso_url": "http://cdimage.debian.org/cdimage/release/7.1.0/amd64/iso-cd/debian-7.1.0-amd64-netinst.iso",
-      "shutdown_command": "echo 'halt -p' > shutdown.sh; echo 'vagrant'|sudo -S bash 'shutdown.sh'",
+      "shutdown_command": "shutdown -h now",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "root",
@@ -51,6 +51,7 @@
       "scripts": [
         "scripts/base.sh",
         "scripts/vagrant-ssh-key.sh",
+        "scripts/chef.sh",
         "scripts/virtualbox.sh",
         "scripts/cleanup.sh",
         "scripts/zerodisk.sh"

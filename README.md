@@ -3,7 +3,7 @@
 ## Requirements
 
 * vagrant >= 1.1.0  (vagrantup.com)
-* packer >= ??? (packer.io)
+* packer >= 0.2 (packer.io)
 
 ## Boxes
 
@@ -11,15 +11,13 @@
 
 * german language and keyboard layout
 * only minimal package set plus openssh
-* chef => 11.x via omnibus install
 * users root and vagrant, both with password vagrant, (insecure) ssh-key is imported!!!!!
 * passwordless sudo is enabled for vagrant user
+* chef is installed by a tweaked scripts/chef.sh (vagrant-omnibus/chef-installer broken on wheezy: http://tickets.opscode.com/browse/CHEF-4125)
 
 ### slim
 
 * testing
-* Download the file 'chef_11.4.4-2.debian.6.0.5_amd64.deb' into this directory as (automatic) installer is broken on wheezy (see http://tickets.opscode.com/browse/CHEF-4125)
-
 
 ## Create Image
 
