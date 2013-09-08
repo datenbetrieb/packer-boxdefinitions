@@ -51,7 +51,10 @@
     }
   ],
   "post-processors": [
-    "vagrant"
+    {
+    "output": "debian-7.1.0-amd64.box",
+    "type": "vagrant"
+    }
   ],
   "provisioners": [
     {
