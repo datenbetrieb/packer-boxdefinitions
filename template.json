@@ -1,27 +1,6 @@
 {
-  "provisioners": [
-    {
-      "type": "shell",
-      "scripts": [
-        "scripts/base.sh",
-        "scripts/vagrant.sh",
-        "scripts/virtualbox.sh",
-        "scripts/ruby.sh",
-        "scripts/chef.sh",
-        "scripts/cleanup-virtualbox.sh",
-        "scripts/cleanup.sh",
-        "scripts/zerodisk.sh"
-      ],
-      "override": {
-        "virtualbox": {
-          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
-        }
-      }
-    }
-  ],
   "builders": [
     {
-      "type": "virtualbox",
       "boot_command": [
         "<esc><wait>",
         "install <wait>",
@@ -41,18 +20,17 @@
       ],
       "boot_wait": "10s",
       "disk_size": 5070,
-      "vm_name": "debian-7-amd64",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Debian_64",
       "http_directory": "http",
       "iso_md5": "80f498a1f9daa76bc911ae13692e4495",
       "iso_url": "http://cdimage.debian.org/cdimage/release/7.1.0/amd64/iso-cd/debian-7.1.0-amd64-netinst.iso",
-      "ssh_username": "vagrant",
+      "shutdown_command": "echo 'halt -p' > shutdown.sh; echo 'vagrant'|sudo -S bash 'shutdown.sh'",
       "ssh_password": "vagrant",
       "ssh_port": 22,
+      "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo 'halt -p' > shutdown.sh; echo 'vagrant'|sudo -S bash 'shutdown.sh'",
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "virtualbox_version_file": ".vbox_version",
+      "type": "virtualbox",
       "vboxmanage": [
         [
           "modifyvm",
@@ -66,10 +44,32 @@
           "--cpus",
           "1"
         ]
-      ]
+      ],
+      "virtualbox_version_file": ".vbox_version",
+      "vm_name": "debian-7-amd64"
     }
   ],
-  "post-processors" :  [
+  "post-processors": [
     "vagrant"
+  ],
+  "provisioners": [
+    {
+      "override": {
+        "virtualbox": {
+          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
+        }
+      },
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/vagrant.sh",
+        "scripts/virtualbox.sh",
+        "scripts/ruby.sh",
+        "scripts/chef.sh",
+        "scripts/cleanup-virtualbox.sh",
+        "scripts/cleanup.sh",
+        "scripts/zerodisk.sh"
+      ],
+      "type": "shell"
+    }
   ]
 }
