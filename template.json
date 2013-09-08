@@ -66,7 +66,6 @@
         "scripts/virtualbox.sh",
         "scripts/ruby.sh",
         "scripts/chef.sh",
-        "scripts/cleanup-virtualbox.sh",
         "scripts/cleanup.sh",
         "scripts/zerodisk.sh"
       ],
