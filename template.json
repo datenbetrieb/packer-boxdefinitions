@@ -26,7 +26,7 @@
       "iso_checksum": "80f498a1f9daa76bc911ae13692e4495",
       "iso_checksum_type": "md5",
       "iso_url": "http://cdimage.debian.org/cdimage/release/7.1.0/amd64/iso-cd/debian-7.1.0-amd64-netinst.iso",
-      "shutdown_command": "echo 'halt -p' > shutdown.sh; echo 'vagrant'|sudo -S bash 'shutdown.sh'",
+      "shutdown_command": "echo '/sbin/shutdown -h -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S bash '/tmp/shutdown.sh'",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "vagrant",
