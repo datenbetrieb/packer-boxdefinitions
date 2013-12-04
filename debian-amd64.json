@@ -1,6 +1,19 @@
 {
   "builders": [
     {
+      "type": "virtualbox",
+      "guest_os_type": "Debian_64",
+      "disk_size": 5070,
+      "guest_additions_path": "VBoxGuestAdditions.iso",
+      "http_directory": "http",
+      "iso_checksum": "b86774fe4de88be6378ba3d71b8029bd",
+      "iso_checksum_type": "md5",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/7.2.0/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso",
+      "shutdown_command": "echo '/sbin/shutdown -h -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S bash '/tmp/shutdown.sh'",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_username": "vagrant",
+      "ssh_wait_timeout": "10000s",
       "boot_command": [
         "<esc><wait>",
         "install <wait>",
@@ -19,19 +32,6 @@
         "<enter><wait>"
       ],
       "boot_wait": "10s",
-      "disk_size": 5070,
-      "guest_additions_path": "VBoxGuestAdditions.iso",
-      "guest_os_type": "Debian_64",
-      "http_directory": "http",
-      "iso_checksum": "b86774fe4de88be6378ba3d71b8029bd",
-      "iso_checksum_type": "md5",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/7.2.0/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso",
-      "shutdown_command": "echo '/sbin/shutdown -h -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S bash '/tmp/shutdown.sh'",
-      "ssh_password": "vagrant",
-      "ssh_port": 22,
-      "ssh_username": "vagrant",
-      "ssh_wait_timeout": "10000s",
-      "type": "virtualbox",
       "vboxmanage": [
         [
           "modifyvm",
