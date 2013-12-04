@@ -52,7 +52,7 @@
   ],
   "post-processors": [
     {
-    "output": "debian-7.1.0-amd64.box",
+    "output": "debian-7-amd64.box",
     "type": "vagrant"
     }
   ],
