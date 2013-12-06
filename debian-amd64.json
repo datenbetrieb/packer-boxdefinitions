@@ -1,5 +1,46 @@
 {
+
   "builders": [
+      {
+        "type": "qemu",
+        "disk_size": 5070,
+        "http_directory": "http",
+        "iso_checksum": "b86774fe4de88be6378ba3d71b8029bd",
+        "iso_checksum_type": "md5",
+        "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso",
+        "shutdown_command": "echo '/sbin/shutdown -h -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S bash '/tmp/shutdown.sh'",
+        "ssh_password": "vagrant",
+        "ssh_port": 22,
+        "ssh_username": "vagrant",
+        "ssh_wait_timeout": "10000s",
+        "format": "qcow2",
+        "headless": false,
+        "accelerator": "kvm",
+        "net_device": "virtio-net",
+        "disk_interface": "virtio",
+        "boot_command": [
+            "<esc><wait>",
+            "install ",
+            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+            "debian-installer=en_US ",
+            "auto ",
+            "locale=en_US ",
+            "kbd-chooser/method=us ",
+            "netcfg/get_hostname={{ .Name }} ",
+            "netcfg/get_domain=vagrantup.com ",
+            "fb=false ",
+            "debconf/frontend=noninteractive ",
+            "console-setup/ask_detect=false ",
+            "console-keymaps-at/keymap=us ",
+            "keyboard-configuration/xkb-keymap=us ",
+            "<enter><wait>"
+        ],
+        "boot_wait": "5s",
+        "qemuargs": [
+          [ "-m", "1024m" ],
+          [ "--no-acpi", "" ]
+        ]
+      },
     {
       "type": "virtualbox",
       "guest_os_type": "Debian_64",
@@ -8,7 +49,7 @@
       "http_directory": "http",
       "iso_checksum": "b86774fe4de88be6378ba3d71b8029bd",
       "iso_checksum_type": "md5",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/7.2.0/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso",
       "shutdown_command": "echo '/sbin/shutdown -h -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S bash '/tmp/shutdown.sh'",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -16,22 +57,22 @@
       "ssh_wait_timeout": "10000s",
       "boot_command": [
         "<esc><wait>",
-        "install <wait>",
-        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg <wait>",
-        "debian-installer=en_US <wait>",
-        "auto <wait>",
-        "locale=en_US <wait>",
-        "kbd-chooser/method=us <wait>",
-        "netcfg/get_hostname={{ .Name }} <wait>",
-        "netcfg/get_domain=vagrantup.com <wait>",
-        "fb=false <wait>",
-        "debconf/frontend=noninteractive <wait>",
-        "console-setup/ask_detect=false <wait>",
-        "console-keymaps-at/keymap=us <wait>",
-        "keyboard-configuration/xkb-keymap=us <wait>",
+        "install ",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+        "debian-installer=en_US ",
+        "auto ",
+        "locale=en_US ",
+        "kbd-chooser/method=us ",
+        "netcfg/get_hostname={{ .Name }} ",
+        "netcfg/get_domain=vagrantup.com ",
+        "fb=false ",
+        "debconf/frontend=noninteractive ",
+        "console-setup/ask_detect=false ",
+        "console-keymaps-at/keymap=us ",
+        "keyboard-configuration/xkb-keymap=us ",
         "<enter><wait>"
       ],
-      "boot_wait": "10s",
+      "boot_wait": "5s",
       "vboxmanage": [
         [
           "modifyvm",
@@ -61,8 +102,12 @@
       "override": {
         "virtualbox": {
           "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
+        },
+          "qemu": {
+          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
         }
       },
+      "type": "shell",
       "scripts": [
         "scripts/base.sh",
         "scripts/vagrant.sh",
@@ -71,8 +116,12 @@
         "scripts/chef.sh",
         "scripts/cleanup.sh",
         "scripts/zerodisk.sh"
-      ],
-      "type": "shell"
+      ]
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": ["cookbooks"],
+      "run_list": ["vim"]
     }
   ]
 }
