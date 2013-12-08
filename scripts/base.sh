@@ -2,7 +2,7 @@
 apt-get -y update
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libssl-dev libreadline-gplv2-dev
-apt-get -y install curl unzip inotify-tools
+apt-get -y install curl unzip
 
 # Set up sudo for vagrant (we do this while preseeding)
 #echo 'vagrant ALL=NOPASSWD:ALL' > /etc/sudoers.d/vagrant
