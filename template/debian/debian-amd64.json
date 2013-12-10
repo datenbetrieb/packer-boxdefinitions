@@ -108,15 +108,21 @@
         }
       },
       "type": "shell",
+      "enviroment_vars": [
+        "USER_CHEF_INSTALLMETHOD={{user `remote`}}",
+        "CHEF_VERSION={{user `latest`}}"
+      ],
       "scripts": [
         "scripts/base.sh",
         "scripts/vagrant.sh",
+        "scripts/vmtools.sh",
         "scripts/ruby.sh",
         "scripts/chef.sh",
         "scripts/cleanup.sh",
         "scripts/zerodisk.sh"
       ]
     },
+
     {
       "type": "chef-solo",
       "cookbook_paths": ["cookbooks"],
