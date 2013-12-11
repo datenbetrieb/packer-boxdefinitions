@@ -94,7 +94,7 @@
     {
       "type": "vagrant",
       "keep_input_artifact": false,
-      "output": "output/{{.Provider}}/debian72.box"
+      "output": "output/{{.Provider}}/debian-7-amd64.box"
     }
   ],
   "provisioners": [
