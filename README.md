@@ -10,10 +10,11 @@
 ### base
 
 * german language and keyboard layout
-* only minimal package set plus openssh
+* only minimal package set plus openssh, git and chef.
 * users root and vagrant, both with password vagrant, (insecure) ssh-key is imported!!!!!
 * passwordless sudo is enabled for vagrant user
 * chef is installed by a tweaked scripts/chef.sh (vagrant-omnibus/chef-installer broken on wheezy: http://tickets.opscode.com/browse/CHEF-4125)
+* for vmware and virtualbox the specific guest-tools will be installed
 
 
 ## Create Image
@@ -22,6 +23,10 @@
 * do:
     $ packer validate template/debian/debian-7-amd64.json
     $ packer build template/debian/debian-7-amd64.json
+* wait until your machine is ready for "vagrant up"
+* add the builded box from output dir to vagrant with:
+    $ vagrant box add yourBoxName ./output/virtualbox/yourBoxName.box
+* AND its done!
 
 
 ## Adopt Definitions
