@@ -15,28 +15,13 @@
 * passwordless sudo is enabled for vagrant user
 * chef is installed by a tweaked scripts/chef.sh (vagrant-omnibus/chef-installer broken on wheezy: http://tickets.opscode.com/browse/CHEF-4125)
 
-### slim
-
-* testing
 
 ## Create Image
 
-    > #!/bin/sh
-    > PACKERBIN=packer
-    > #PACKERBIN=/opt/packer/packer
-
-    > TEMPLATE=base
-    > VERSION=01
-
-    > # validate config and create the image
-    > ${PACKERBIN} validate ${TEMPLATE}.json
-    > ${PACKERBIN} build ${TEMPLATE}.json
-
-    > #Add Image on your personal vagrant box shelf
-    > BOXFILE="packer__virtualbox.box"
-    > BOXNAME="debian-7-amd64-${TEMPLATE}-${VERSION}"
-    > #vagrant box remove ${BOXNAME} virtualbox
-    > #vagrant box add ${BOXNAME} $(BOXFILE}
+* install packer from http://packer.io
+* do:
+    $ packer validate template/debian/debian-7-amd64.json
+    $ packer build template/debian/debian-7-amd64.json
 
 
 ## Adopt Definitions
