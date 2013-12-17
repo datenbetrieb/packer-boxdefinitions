@@ -1,5 +1,7 @@
 # Image Creation for Virtual Machines
 
+* this definition creates a virtualbox machine with a pre-installed and fundamental configured debian 7.2 amd64.
+
 ## Requirements
 
 * vagrant >= 1.1.0  (vagrantup.com)
