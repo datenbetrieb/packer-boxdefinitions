@@ -5,6 +5,7 @@
       "boot_wait": "5s",
       "disk_size": 5070,
       "guest_os_type": "Debian_64",
+      "guest_additions_path": "~/VBoxGuestAdditions_{{.Version}}.iso",
       "http_directory": "http",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "md5",
