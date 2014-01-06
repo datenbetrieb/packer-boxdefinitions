@@ -4,12 +4,11 @@
       "type": "virtualbox-iso",
       "boot_wait": "5s",
       "disk_size": 5070,
-      "guest_additions_path": "/srv/vmtools/VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Debian_64",
       "http_directory": "http",
-      "iso_checksum": "b86774fe4de88be6378ba3d71b8029bd",
+      "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "md5",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/{{user `debian_version`}}.iso",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -h now",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -74,6 +73,8 @@
   "variables": {
     "chef_installmethod": "default",
     "chef_version": "latest",
-    "vm_name": "debian-7-amd64"
+    "vm_name": "debian-7-amd64",
+    "iso_checksum": "72473e8a5e65b61acc7efde90d9f71d1",
+    "debian_version": "debian-7.3.0-amd64-netinst"
   }
 }
