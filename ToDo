@@ -1,13 +1,4 @@
-
-* virtualbox guest additions based on debian kernel/likely to be outdated
-    -> find a better way to match version of guestadditions and version of host virtualbox
-
-* add vagrant template
-
-* use vagrant-omnibus once chef has fixed the installer for wheezy
-
-[DONE] chef installed via omnibus
-
-
 * make http(preseed.cfg) relative to template. at the moment the http dir has to be relativ to the packer command
   -> https://github.com/mitchellh/packer/issues/193
+
+* add other ssh keys
