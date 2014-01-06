@@ -61,6 +61,8 @@
       "scripts": [
         "template/debian/scripts/base.sh",
         "template/debian/scripts/git.sh",
+        "template/debian/scripts/vim.sh",
+        "template/debian/scripts/curl.sh",
         "template/debian/scripts/vagrant.sh",
         "template/debian/scripts/vmtools.sh",
         "template/debian/scripts/chef.sh",
