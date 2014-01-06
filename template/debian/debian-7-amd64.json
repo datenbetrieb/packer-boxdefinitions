@@ -1,40 +1,20 @@
 {
-  "variables": {
-    "chef_installmethod": "default",
-    "chef_version": "latest",
-    "vm_name": "debian-7-amd64"
-  },
-
   "builders": [
     {
-      "type": "virtualbox",
-      "vm_name": "{{user `vm_name`}}",
-      "guest_os_type": "Debian_64",
+      "type": "virtualbox-iso",
+      "boot_wait": "5s",
       "disk_size": 5070,
-      "virtualbox_version_file": ".vbox_version",
       "guest_additions_path": "/srv/vmtools/VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_os_type": "Debian_64",
       "http_directory": "http",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso",
       "iso_checksum": "b86774fe4de88be6378ba3d71b8029bd",
       "iso_checksum_type": "md5",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/debian-7.2.0-amd64-netinst.iso",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -h now",
+      "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
       "ssh_wait_timeout": "10000s",
-      "boot_command": [
-        "<esc><wait>",
-        "install ",
-        "auto ",
-        "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
-        "debian-installer=en_US ",
-        "locale=en_US ",
-        "keymap=us ",
-        "netcfg/get_hostname={{ .Name }} ",
-        "netcfg/get_domain=vagrantup.com ",
-        "<enter>"
-      ],
-      "boot_wait": "5s",
       "vboxmanage": [
         [
           "modifyvm",
@@ -48,19 +28,32 @@
           "--cpus",
           "1"
         ]
+      ],
+      "virtualbox_version_file": ".vbox_version",
+      "vm_name": "{{user `vm_name`}}",
+      "boot_command": [
+        "<esc><wait>",
+        "install ",
+        "auto ",
+        "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+        "debian-installer=en_US ",
+        "locale=en_US ",
+        "keymap=us ",
+        "netcfg/get_hostname={{ .Name }} ",
+        "netcfg/get_domain=vagrantup.com ",
+        "<enter>"
       ]
     }
   ],
   "post-processors": [
     {
-      "type": "vagrant",
       "keep_input_artifact": false,
-      "output": "output/{{.Provider}}/debian-7-amd64.box"
+      "output": "output/{{.Provider}}/debian-7-amd64.box",
+      "type": "vagrant"
     }
   ],
   "provisioners": [
     {
-      "type": "shell",
       "environment_vars": [
         "CHEF_INSTALLMETHOD={{user `chef_installmethod`}}",
         "CHEF_VERSION={{user `chef_version`}}"
@@ -74,7 +67,13 @@
         "template/debian/scripts/chef.sh",
         "template/debian/scripts/cleanup.sh",
         "template/debian/scripts/zerodisk.sh"
-      ]
+      ],
+      "type": "shell"
     }
-  ]
+  ],
+  "variables": {
+    "chef_installmethod": "default",
+    "chef_version": "latest",
+    "vm_name": "debian-7-amd64"
+  }
 }
