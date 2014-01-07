@@ -23,8 +23,12 @@
 
 * install packer from http://packer.io
 * do:
-    $ packer validate template/debian/debian-7-amd64.json
-    $ packer build template/debian/debian-7-amd64.json
+    ```bash
+    packer validate template/debian/debian-7-amd64.json
+    ```
+    ```bash
+    packer build template/debian/debian-7-amd64.json
+    ```
 * wait until your machine is ready for "vagrant up"
 * add the builded box from output dir to vagrant with:
     $ vagrant box add yourBoxName ./output/virtualbox/yourBoxName.box
