@@ -23,10 +23,10 @@
 
 * install packer from http://packer.io
 * do:
-    ```bash
+    ```
     packer validate template/debian/debian-7-amd64.json
     ```
-    ```bash
+    ```
     packer build template/debian/debian-7-amd64.json
     ```
 * wait until your machine is ready for "vagrant up"
