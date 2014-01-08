@@ -5,7 +5,7 @@
       "boot_wait": "5s",
       "disk_size": 5070,
       "guest_os_type": "Debian_64",
-      "guest_additions_path": "~/VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_additions_path": "/home/vagrant/VBoxGuestAdditions_{{.Version}}.iso",
       "http_directory": "http",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "md5",
@@ -61,11 +61,11 @@
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
         "template/debian/scripts/base.sh",
+        "template/debian/scripts/vmtools.sh",
         "template/debian/scripts/git.sh",
         "template/debian/scripts/vim.sh",
         "template/debian/scripts/curl.sh",
         "template/debian/scripts/vagrant.sh",
-        "template/debian/scripts/vmtools.sh",
         "template/debian/scripts/chef.sh",
         "template/debian/scripts/cleanup.sh",
         "template/debian/scripts/zerodisk.sh"
