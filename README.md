@@ -7,6 +7,9 @@
 * vagrant >= 1.1.0  (vagrantup.com)
 * packer >= 0.2 (packer.io)
 
+* a current debian iso
+  if packer can not find the iso you have to look at the release database to find the current release. then you have to adapt the iso version and md5 hash.
+
 ## Boxes
 
 ### base
@@ -41,4 +44,4 @@
 *.json is the config for packer, consult packer documentation
 
 http/preseed.cfg is used to automate the debian installer
-scripts/* ... toBeContinued ....
+scripts/* includes shell provisioner scripts
