@@ -8,3 +8,5 @@ apt-get -y install ruby ruby-dev libopenssl-ruby1.8 irb ri rdoc
 #(cd /tmp && unzip rubygems-${rg_ver}.zip && \
 #  cd rubygems-${rg_ver} && ruby setup.rb --no-format-executable)
 #rm -rf /tmp/rubygems-${rg_ver} /tmp/rubygems-${rg_ver}.zip
+
+# Install Ruby per rvm
