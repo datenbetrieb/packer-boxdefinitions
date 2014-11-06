@@ -43,39 +43,6 @@
         "netcfg/get_domain=vagrantup.com ",
         "<enter>"
       ]
-    },
-    {
-      "type": "qemu",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/{{user `debian_version`}}.iso",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "md5",
-      "ssh_wait_timeout": "120s",
-      "output_directory": "output/qemu/{{user `output_name`}}",
-      "shutdown_command": "sudo shutdown -h now",
-      "disk_size": 5070,
-      "format": "qcow2",
-      "headless": false,
-      "accelerator": "kvm",
-      "http_directory": "http",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
-      "ssh_port": 22,
-      "vm_name": "{{user `vm_name`}}",
-      "net_device": "virtio-net",
-      "disk_interface": "virtio",
-      "boot_command":
-        [
-          "<esc><wait>",
-          "install ",
-          "auto ",
-          "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
-          "debian-installer=en_US ",
-          "locale=en_US ",
-          "keymap=us ",
-          "netcfg/get_hostname={{ .Name }} ",
-          "netcfg/get_domain=vagrantup.com ",
-          "<enter>"
-        ]
     }
   ],
   "post-processors": [
