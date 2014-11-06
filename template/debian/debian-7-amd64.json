@@ -9,7 +9,7 @@
       "http_directory": "http",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "md5",
-      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/{{user `debian_version`}}.iso",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/debian-{{user `debian_version`}}-amd64-netinst.iso",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -h now",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -111,8 +111,8 @@
     "chef_installmethod": "default",
     "chef_version": "latest",
     "vm_name": "debian-7-amd64",
-    "output_name": "debian-7-3-amd64.box",
-    "iso_checksum": "72473e8a5e65b61acc7efde90d9f71d1",
-    "debian_version": "debian-7.3.0-amd64-netinst"
+    "output_name": "debian-7-amd64.box",
+    "iso_checksum": "0b31bccccb048d20b551f70830bb7ad0",
+    "debian_version": "7.7.0"
   }
 }
