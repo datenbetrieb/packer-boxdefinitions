@@ -68,6 +68,7 @@
         "template/debian/scripts/curl.sh",
         "template/debian/scripts/vagrant.sh",
         "template/debian/scripts/chef.sh",
+        "template/debian/scripts/gitlab.sh",
         "template/debian/scripts/cleanup.sh",
         "template/debian/scripts/zerodisk.sh"
       ],
