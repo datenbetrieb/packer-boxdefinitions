@@ -20,7 +20,7 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "512"
+          "1024"
         ],
         [
           "modifyvm",
@@ -38,7 +38,7 @@
         "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
         "debian-installer=en_US ",
         "locale=en_US ",
-        "keymap=us ",
+        "keymap=de ",
         "netcfg/get_hostname={{ .Name }} ",
         "netcfg/get_domain=vagrantup.com ",
         "<enter>"
@@ -68,7 +68,6 @@
         "template/debian/scripts/curl.sh",
         "template/debian/scripts/vagrant.sh",
         "template/debian/scripts/chef.sh",
-        "template/debian/scripts/gitlab.sh",
         "template/debian/scripts/cleanup.sh",
         "template/debian/scripts/zerodisk.sh"
       ],
@@ -78,8 +77,8 @@
   "variables": {
     "chef_installmethod": "default",
     "chef_version": "latest",
-    "vm_name": "debian-7-amd64",
-    "output_name": "debian-7-amd64.box",
+    "vm_name": "debian7",
+    "output_name": "debian-7.box",
     "iso_checksum": "0b31bccccb048d20b551f70830bb7ad0",
     "debian_version": "7.7.0"
   }
