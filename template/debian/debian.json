@@ -1,0 +1,114 @@
+{
+  "variables": {
+    "chef_installmethod": "default",
+    "chef_version": "latest",
+    "vm_name": "debian8",
+    "iso_checksum": "1a311f9afb68d6365211b13b4342c40b",
+    "debian_version": "8.1.0"
+  },
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "boot_wait": "5s",
+      "disk_size": 5070,
+      "guest_os_type": "Debian_64",
+      "guest_additions_path": "~/VBoxGuestAdditions_{{.Version}}.iso",
+      "http_directory": "http",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "md5",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/debian-{{user `debian_version`}}-amd64-netinst.iso",
+      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -h now",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_username": "vagrant",
+      "ssh_wait_timeout": "10000s",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "512"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ],
+      "virtualbox_version_file": ".vbox_version",
+      "vm_name": "{{user `vm_name`}}",
+      "boot_command": [
+        "<esc><wait>",
+        "install ",
+        "auto ",
+        "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+        "debian-installer=en_US ",
+        "locale=en_US ",
+        "keymap=us ",
+        "netcfg/get_hostname={{ .Name }} ",
+        "netcfg/get_domain=vagrantup.com ",
+        "<enter>"
+      ]
+    },
+    {
+      "type": "qemu",
+      "iso_url": "http://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/debian-{{user `debian_version`}}-amd64-netinst.iso",
+      "iso_checksum": "{{user `iso_checksum`}}",
+      "iso_checksum_type": "md5",
+      "output_directory": "output_debian_tdhtest",
+      "ssh_wait_timeout": "30s",
+      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -h now",
+      "disk_size": 5070,
+      "format": "qcow2",
+      "headless": false,
+      "accelerator": "kvm",
+      "http_directory": "http",
+      "http_port_min": 10082,
+      "http_port_max": 10089,
+      "ssh_host_port_min": 2222,
+      "ssh_host_port_max": 2229,
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "90m",
+      "vm_name": "{{user `vm_name`}}",
+      "net_device": "virtio-net",
+      "disk_interface": "virtio",
+      "boot_wait": "5s",
+      "boot_command":
+      [
+        "<esc><wait>",
+        "install ",
+        "auto ",
+        "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+        "debian-installer=en_US ",
+        "locale=en_US ",
+        "keymap=us ",
+        "netcfg/get_hostname={{ .Name }} ",
+        "netcfg/get_domain=vagrantup.com ",
+        "<enter>"
+      ]
+  }
+  ],
+  "post-processors": [
+    {
+      "keep_input_artifact": false,
+      "output": "output/{{.Provider}}/{{user `vm_name`}}.box",
+      "type": "vagrant"
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "template/debian/scripts/base.sh",
+        "template/debian/scripts/vagrant.sh",
+        "template/debian/scripts/vmtools.sh",
+        "template/debian/scripts/cleanup.sh",
+        "template/debian/scripts/zerodisk.sh"
+      ],
+      "type": "shell"
+    }
+  ]
+}
