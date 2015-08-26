@@ -1,4 +1,0 @@
-* make http(preseed.cfg) relative to template. at the moment the http dir has to be relativ to the packer command
-  -> https://github.com/mitchellh/packer/issues/193
-
-* add other ssh keys
