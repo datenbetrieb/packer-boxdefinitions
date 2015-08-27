@@ -40,8 +40,20 @@
 
 ## Adopt Definitions
 
+<<<<<<< Updated upstream
 
 *.json is the config for packer, consult packer documentation
+=======
+* *.json is the config for packer, consult packer documentation
+* http/preseed.cfg is used to automate the debian installer  
+* scripts/* includes a bunch of shell scripts to on/off install packages, add users etc.. Use it to do only the absolutly basic things. all other configurations should be done by other provisioners like chef or ansible.
+
+## Todo
+
+* make http(preseed.cfg) relative to template. at the moment the http dir has to be relativ to the packer command  
+  -> https://github.com/mitchellh/packer/issues/193  
+  -> solved by https://github.com/mitchellh/packer/pull/2151 but not implemented yet
+>>>>>>> Stashed changes
 
 http/preseed.cfg is used to automate the debian installer
 scripts/* includes shell provisioner scripts
