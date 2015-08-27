@@ -1,5 +1,6 @@
 #!/bin/bash -eux
-if [ $PACKER_BUILDER_TYPE == 'virtualbox' ]; then
+
+if [ $PACKER_BUILDER_TYPE == 'virtualbox-iso' ]; then
     echo "Installing VirtualBox guest additions"
 
     apt-get install -y linux-headers-$(uname -r) build-essential perl
