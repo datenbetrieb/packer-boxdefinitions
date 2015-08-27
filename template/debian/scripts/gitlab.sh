@@ -1,5 +1,5 @@
 #!/bin/sh
-wget https://downloads-packages.s3.amazonaws.com/debian-7.6/gitlab_7.4.3-omnibus.5.1.0.ci-1_amd64.deb
-sudo apt-get install openssh-server -y
-sudo apt-get install postfix -y # Select 'Internet Site', using sendmail instead also works, exim has problems
-sudo dpkg -i gitlab_7.4.3-omnibus.5.1.0.ci-1_amd64.deb -y
+sudo apt-get install -y curl openssh-server ca-certificates postfix
+curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+sudo apt-get install gitlab-ce
+sudo gitlab-ce reconfigure
